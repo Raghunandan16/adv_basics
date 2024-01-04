@@ -1,5 +1,6 @@
 import 'package:adv_basics/data/questions.dart';
 import 'package:adv_basics/questions_screen.dart';
+import 'package:adv_basics/results_screen.dart';
 import 'package:adv_basics/start_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -24,8 +25,8 @@ class _QuizState extends State<Quiz> {
     selectedAnswers.add(ans);
     if (selectedAnswers.length == questions.length) {
       setState(() {
+        activeScreen = 'results-screen';
         selectedAnswers = [];
-        activeScreen = 'start-screen';
       });
     }
   }
@@ -47,7 +48,9 @@ class _QuizState extends State<Quiz> {
           ),
           child: activeScreen == 'start-screen'
               ? StartScreen(switchScreen)
-              : QuestionsScreen(onSelectAnswer: chooseAnswer),
+              : activeScreen == 'questions-screen'
+                  ? QuestionsScreen(onSelectAnswer: chooseAnswer)
+                  : const ResultScreen(),
         ),
       ),
     );

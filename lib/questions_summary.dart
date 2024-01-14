@@ -13,9 +13,10 @@ class QuestionsSummary extends StatelessWidget {
             return Row(
               children: [
                 Text(
-                  ((data['question_index'] as int) + 1).toString(),
+                  ((data['question_index'] as int) + 1).toString(), //
                   style: const TextStyle(
-                      color: Color.fromARGB(200, 255, 255, 255)),
+                    color: Color.fromARGB(200, 255, 255, 255),
+                  ), //temporary style for index
                 ),
                 Expanded(
                   child: Column(
